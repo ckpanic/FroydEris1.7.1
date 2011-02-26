@@ -1,0 +1,5 @@
+modver=CyanogenMod-6-12072010-NIGHTLY-Hero
+post-build=google/passion/passion/mahimahi:2.2.1/FRG83/60505:user/release-keys
+post-timestamp=0
+pre-bootloader=*
+pre-device=hero

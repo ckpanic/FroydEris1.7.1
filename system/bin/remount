@@ -1,0 +1,15 @@
+#!/system/bin/sh
+STATE=$1
+[ -z $STATE ] && STATE=$(mount|grep "/system "|awk '{print $6}'|sed 's/(//'|sed 's/)//'|cut -d , -f 1)
+SYSTEM=$(mount|grep "/system "|awk '{print $1}')
+case $STATE in
+  rw)
+    mount -o remount,ro $SYSTEM /system
+    echo "/system mounted RO"
+  ;;
+  ro)
+    mount -o remount,rw $SYSTEM /system
+    echo "/system mounted RW"
+  ;;
+esac
+exit 0
